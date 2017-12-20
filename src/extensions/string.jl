@@ -1,5 +1,5 @@
-extend(s::String, ::Val{:count}) = length(s)
+extend(s::String, ::Type{Val{:count}}) = length(s)
 
 function Base.getproperty(s::String, name::Symbol)
-    extend(s, Val{name}())
+    extend(s, Val{name})
 end
